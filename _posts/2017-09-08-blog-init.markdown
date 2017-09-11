@@ -1,0 +1,52 @@
+---
+layout: post
+title:  "使用jekyll建立博客"
+date:   2017-09-08 10:38:33 +0800
+categories: jekyll update
+---
+
+## 搭建 `Jekyll` 工作环境
+
+window10系统安裝
+
+```
+$ download Ruby #http://rubyinstaller.org/downloads/
+$ download Ruby Development kit #http://rubyinstaller.org/downloads/
+$ ruby -v
+$ cd devekit
+$ ruby dk.rb init
+$ sed 's/$/c:Ruby/g'config.yml
+$ ruby dk.rb review
+$ ruby dk.rb install
+$ gem sources --add http://gems.ruby-china.org/ --remove http://rubygems.org/
+$ gem -v
+$ gem install jekyll
+$ gem install bundler
+```
+
+linux 系统安装
+
+```
+$ [download](https://www.ruby-lang.org/en/downloads/)
+$ wget https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.gz
+$ tar -zxvf ruby-2.4.1.tar.gz
+$ cd /ruby-2.4.1
+$ ./configure
+$ make
+$ make install
+$ ruby -v
+$
+$
+$ sudo yum install ruby
+$
+$ sudo apt-get install ruby-full
+$
+$ brew install ruby
+$
+$ gem install bundler
+$ gem install jekyll
+$ gem install jekyll-paginate
+$ jekyll serve
+$
+$ bundle exec jekyll serve
+```

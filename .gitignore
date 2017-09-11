@@ -1,0 +1,10 @@
+_site
+node_modules
+npm-debug.log
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*.sh
+.idea/
+.gitignore
+smalltao.github.io.iml
