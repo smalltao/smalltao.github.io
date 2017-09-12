@@ -25,6 +25,7 @@
     "close": "ps -ef|grep SimpleHTTPServer|awk '{print $2}'|xargs kill -9",
     "enc": "tar -cz shell/ | openssl enc -aes-256-cbc -out sh.tar.gz.dat",
     "denc": "openssl enc -aes-256-cbc -d -in shell.tar.gz.dat | tar -xz -P shell/",
+    "jenkins": "java -jar /usr/local/src/jenkins.war --httpPort=8030 &",
     "py3wa": "grunt watch & npm run py3view & jekyll serve -w",
     "boil": "git push boilerplate boilerplate:master",
     "push": "git push origin master --tag",
