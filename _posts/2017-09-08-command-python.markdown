@@ -389,17 +389,218 @@ class Persion:
         self.name = name
         self.age = age
         print self.name
+
     # 有self此函数为方法
     def sayHi(self):
         print 'Hello, my name is ', self.name
+
     # 对象消逝的时候被调用
     def __del__(self):
         print 'over'
+
+
 # 实例化对象
 p = Persion('Swaroop', 23)
 # 使用对象方法
 p.sayHi()
+
+
+# 继承
+class Teacher(Persion):
+    def __init__(self, name, age, salary):
+        Persion.__init__(self, name, age)
+        self.salary = salary
+        print '(Initialized Teacher: %s)' % self.name
+
+    def tell(self):
+        Persion.tell(self)
+        print 'Salary: "%d"' % self.salary
+
+
+t = Teacher('Mrs ,shrivdya', 40, 3000)
+
+getattr(object, name, default)
+# 返回object的名称为name的属性的属性值，如果属性name存在，则直接返回其属性值，如果name属性不存在，则触发AttribetError 异常或当可选参数default定义时返回default值
+class A:
+    def __init__(self):
+        self.name = 'zhangjing'
+
+    def method(self):
+        print "method print"
+
+
+Instance = A()
+print getattr(Instance, 'name', 'not find')  # 如果Instance 对象中有属性name则打印self.name的值，否则打印'not find'
+print getattr(Instance, 'age', 'not find')  # 如果Instance 对象中有属性age则打印self.age的值，否则打印'not find'
+print getattr(Instance, 'method', 'default')  # 如果有方法method，否则打印其地址，否则打印default
+print getattr(Instance, 'method', 'default')()  # 如果有方法method，运行函数并打印None否则打印default
+
+setattr(object, name, value)
+
+# 设置object的名称为name(type：string)的属性的属性值为value，属性name可以是已存在属性也可以是新属性。
+
+# 等同多次 self.name = name 赋值 在外部可以直接把变量和值对应关系传进去
+# class Person:
+#    def __init__(self, name ,age):
+#        self.name = name
+#        self.age = age
+
+config = {'name': 'name', 'age', 'age'}
+class Configure(object):
+    def __init__(self, config):
+        self.register(config)
+
+    def register(self, config):
+        for key, value in config.items():
+            if key.upper() == key:
+                setattr(self, key, value)
 ```
+
+
+## 1.18 模块包
+
+文件 `ops/fileserver/__init__.py`
+```
+import readers
+import writers
+```
+
+每个模块包中，都有一个 `__init__.py` 文件，有了这个文件，才能导入这个目录下的module，在导入一个包时 `import ops.fileserver` ,实际上是导入了它的`__init__.py`文件
+可以在 `__init__.py` 文件中再导入其他的包，或者模块，就不需要将所有的`import`语句写在一个文件里了，也就可以减少代码量，不需要一个一个去导入module了。
+
+`__init__.py` 有一个重要的变量`__all__`. 有时会需要全部导入，`from PackageName import * ` ，这时 import 就会把注册在包 `__init__.py`文件中的`__all__`列表中的子模块
+和子包导入当前作用域来。如：
+```
+__all__ = ["Module1", "Module2","subPackage1","subPackage2"]
+```
+
+## 1.19 执行模块类中的所有方法
+
+```
+import sys, time
+import inspect # 反射包
+class mon:
+    def __init__(self):
+        self.data = dict()
+    def run(self):
+        return self.runAllGet()
+    def getDisk(self):
+        return 222
+    def getCpu(self):
+        return 111
+    def runAllGet(self):
+        for fun in inspect.getmembers(self, predicate=inspect.ismethod):
+            print fun[0], fun[1]
+            if fun[0][:3] == 'get':
+                self.data[fun[0][3:]] = fun[1]()
+        print self.data
+from test import mon
+m = mon()
+m.runAllGet()
+```
+
+## 1.20 文件处理
+模式： 读'r' 写[清空整个文件]'w' 追加[文件需要存在]'a' 读写'r+' 二进制文件'b' 'rb','wb','rb+'
+
+写文件
+```
+i={'ddd':'ccc'}
+f = file('poem.txt','a')
+f.write("string")
+f.write(str(i))
+f.flush()
+f.close()
+```
+
+读文件
+```
+f = file('/etc/passwd','r')
+c = f.read().strip()        # 读取一个大字符串，并去掉最后一个换行符
+for i in c.split('\n'): # 用换行符切割字符串得到列表循环每行
+    print i
+f.close()
+```
+
+读文件1
+```
+f = file('/etc/passwd','r')
+while True:
+    line = f.readline() # 返回一行
+    if len(line) == 0:
+        break
+    x = line.split(":")                     # 冒号分割定义序列
+    # x = [ x for x in line.split(":") ]    # 冒号分割定义序列
+    # x = [ x.split("/") for x in line.split(":") ] # 先冒号分割，在/分割 打印x[6][1]
+f.close
+```
+
+读取文件2
+```
+f = file('/etc/passwd')
+c = f.readlines() # 读所有文件内容，可反复读取，大文件时占用内存较大
+for line in c:
+    print line.rstrip(),
+f.close()
+```
+
+读文件3
+```
+for i in opens('b.txt'): # 直接读取也可迭代，并有利于大文件读取，但不可反复读取
+    print i,
+```
+
+追加日志
+```
+log = open('/home/peterli/xuesong','a')
+print >> log, 'faaa'
+log.close()
+```
+
+with读文件
+```
+#自动关闭文件、线程锁的自动获取和释放等
+with open('a.txt') as f:
+    for i in f:
+        print i
+    print f.read() # 打印所有内容为字符串
+    print f.readlines() # 打印所有内容按行分割的列表
+```
+
+文件随机读写
+```
+# 文件本没有换行，一切都是字符，文件也没有插入功能
+f.tell()                # 当前读写位置
+f.read(5)               # 读取5个字符并改变指针
+f.seek(5)               # 改变用户态读写指针偏移位置，可做随机写
+f.seek(p,0)             # 移动当前文件第p个字节处，绝对位置
+f.seek(p,1)             # 移动到相对于当前位置之后的p个字节
+f.seek(p,2)             # 移动到相对于文件尾之后的p个字节
+f.seek(0,2)             # 指针指导尾部
+# 改变指针超出文件尾部，会造成文件洞，ll看内存占比大，但是，du -sh 却非常小
+f.read(65535)           # 读取64k字节
+f.write("str")          # 写会覆盖当前指针后的响应字符，无插入功能
+```
+
+## 内建函数
+```
+dir(sys)            # 显示对象的属性
+help(sys)           # 交互式帮助
+int(obj)            # 转换为整形
+str(obj)            # 转换为字符型
+len(obj)            # 返回对象或序列化长度
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
