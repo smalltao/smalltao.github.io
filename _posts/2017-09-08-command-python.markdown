@@ -581,16 +581,70 @@ f.read(65535)           # 读取64k字节
 f.write("str")          # 写会覆盖当前指针后的响应字符，无插入功能
 ```
 
-## 内建函数
+## 1.21 内建函数
 ```
 dir(sys)            # 显示对象的属性
 help(sys)           # 交互式帮助
 int(obj)            # 转换为整形
 str(obj)            # 转换为字符型
 len(obj)            # 返回对象或序列化长度
+open(file,mode)     # 打开文件 # mode(r 读，w 读， a 追加)
+range(0,3)          # 返回一个整型列表
+raw_input("str")    # 等待用户输入
+type(obj)           # 返回对象类型
+abs(-22)            # 绝对值
+random              # 随机数
+choice()            # 随机返回给定序列的一个元素
+divmod(x, y)        # 函数完成除法运算，返回商和余数
+roud(x[,n])         # 函数返回浮点数x的四舍五入值，如果给出n值，则表示舍入到小数点后的位数
+strip()             # 去掉字符串两端多余空格，该句是去除序列中的所有字符串两端的多余的空格
+del                 # 删除列表里面的数据
+cmp(x,y)            # 比较两个对象 #根据比较结果返回一个整数，如果x<y,则返回-1；如果x>y，则返回1，如果x==y，则返回0
+max()               # 字符串中最大的字符
+min()               # 字符串中最小的字符
+sorted()            # 对序列排序
+reversed()          # 对序列倒序
+enumerate()         # 返回索引位置和对应的值
+sum()               # 总和
+list()              # 变成序列，可用于迭代
+eval('3+4')         # 将字符串当成表达式求值
+exec 'a=100'        # 将字符串按python语句执行
+exec(a+'=new')      # 将变量a的值作为新的变量
+tuple()             # 变成元组，可用于迭代 #一旦初始化便不能更改的数据结构，速度比list快
+zip(s,t)            # 返回一个合并后的列表 s = ['11','22'] t = ['aa','bb'] 结果：[('11', 'aa'), ('22', 'bb')]
+isinstance(object,int)  # 测试对象类型 int
+xrange([lower,]stop[,step]) # 函数返回与range类似，但是xrange并不创建列表，而是返回一个xrange对象
 ```
 
+## 1.22 列表函数内建函数
 
+```
+list.append(obj)                # 向列表中添加一个对象
+list.count(obj)                 # 返回一个对象obj在列表中出现的次数
+list.extent(seq)                # 把序列sql的内容添加到列表中
+list.index(obj,i=0,j=len(list)) # 返回list[k] == obj 的k值，并且k的范围在i<=k<j;否则异常
+list.insert(index,obj)          # 在索引位置为index的位置插入对象
+list.pop(index=-1)              # 删除并返回指定位置的对象，默认是最后有一个对象
+list.remove(obj)                # 从列表中删除对象obj
+list.reverse()                  # 反转列表
+list.sort(func=None,key=None,reverse=False) # 以指定的方式排序列表中的成员，如果func和key参数指定，则按照指定的方式比较各元素，如果是reverse标识被设置为True，则列表反序
+```
+
+## 1.23 序列类型操作符
+```
+seq[ind]        # 获取下标为ind的元素
+seq[ind:ind2]   # 获取下标从ind1到ind2的元素集合
+seq * expr      # 序列重复expr次
+seq1 + seq2     # 链接seq1和seq2
+obj in seq      # 判断obj元素是否包含在seq中
+obj not in seq  # 判断obj元素是否不包含在seq中
+```
+
+## 1.24 字符串类型内建方法
+```
+string.expandtabs(tabsize=8)                # tab符号转为空格 # 默认8个空格
+string.endswith(obj,beg=0,end=len(staring)) #检查字符串是否以obj结束，，如果是返回True，# beg或end指定检测范围是以obj结束
+```
 
 
 
