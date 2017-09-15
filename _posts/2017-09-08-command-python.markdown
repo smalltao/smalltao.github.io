@@ -47,6 +47,8 @@ sudo apt-get install python-pip # ubuntu install pip
 `pip` 官方安装脚本
 ```
 wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+or
+wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 ```
 
@@ -643,7 +645,17 @@ obj not in seq  # 判断obj元素是否不包含在seq中
 ## 1.24 字符串类型内建方法
 ```
 string.expandtabs(tabsize=8)                # tab符号转为空格 # 默认8个空格
-string.endswith(obj,beg=0,end=len(staring)) #检查字符串是否以obj结束，，如果是返回True，# beg或end指定检测范围是以obj结束
+string.endswith(obj,beg=0,end=len(staring)) # 检查字符串是否以obj结束，，如果是返回True，# beg或end指定检测范围是以obj结束
+string.find(str,beg=0,end=len(string))      # 检测str是否包含在string中
+string.index(str,beg=0,end=len(string))     # 检测str不在string中会报异常
+string.isalnum()                            # 如果string至少有一个字符并且所有字符都是字母或数字则反回True
+string.isalpha()                            # 如果string至少有一个字符并且所有字符都是字母则返回True
+string.isnumberic()                         # 如果字符串只包含数字字符，则返回True
+string.isspace()                            # 如果字符串包含空格则返回True
+string.isupper()                            # 字符串都是大写返回True
+string.islower()                            # 转换字符串中所有大写为小写
+string.upper()                              # 转换字符串中所有小写为大写
+
 ```
 
 
