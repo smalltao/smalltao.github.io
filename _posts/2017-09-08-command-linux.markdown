@@ -20,13 +20,13 @@ shell实例手册
 
     ls -rtl                 # 按时间倒叙列出所有目录和文件 ll -rt
     touch file              # 创建空白文件
-    rm -rf 目录名            # 不提示删除非空目录(-r:递归删除 -f强制)
+    rm -rf 目录名           # 不提示删除非空目录(-r:递归删除 -f强制)
     dos2unix                # windows文本转linux文本
     unix2dos                # linux文本转windows文本
     enca filename           # 查看编码  安装 yum install -y enca
     md5sum                  # 查看md5值
-    ln 源文件 目标文件         # 硬链接
-    ln -s 源文件 目标文件      # 符号连接
+    ln 源文件 目标文件      # 硬链接
+    ln -s 源文件 目标文件   # 符号连接
     readlink -f /data       # 查看连接真实目录
     cat file | nl |less     # 查看上下翻页且显示行号  q退出
     head                    # 查看文件开头内容
@@ -44,17 +44,17 @@ shell实例手册
     paste -s a              # 将多行数据合并到一行用tab键隔开
     chattr +i /etc/passwd   # 不得任意改变文件或目录 -i去掉锁 -R递归
     more                    # 向下分面器
-    locate 字符串            # 搜索
+    locate 字符串           # 搜索
     wc -l file              # 查看行数
     cp filename{,.bak}      # 快速备份一个文件
     \cp a b                 # 拷贝不提示 既不使用别名 cp -i
     rev                     # 将行中的字符逆序排列
     comm -12 2 3            # 行和行比较匹配
     echo "10.45aa" |cksum                   # 字符串转数字编码，可做校验，也可用于文件校验
-    iconv -f gbk -t utf8 原.txt > 新.txt     # 转换编码
+    iconv -f gbk -t utf8 原.txt > 新.txt    # 转换编码
     xxd /boot/grub/stage1                   # 16进制查看
     hexdump -C /boot/grub/stage1            # 16进制查看
-    rename 原模式 目标模式 文件                 # 重命名 可正则
+    rename 原模式 目标模式 文件             # 重命名 可正则
     watch -d -n 1 'df; ls -FlAt /path'      # 实时某个目录下查看最新改动过的文件
     cp -v  /dev/dvd  /rhel4.6.iso9660       # 制作镜像
     diff suzu.c suzu2.c  > sz.patch         # 制作补丁
@@ -359,7 +359,7 @@ shell实例手册
 
 ## 3 系统
 
-    wall        　  　           # 给其它用户发消息
+    wall        　  　          # 给其它用户发消息
     whereis ls                  # 查找命令的目录
     which                       # 查看当前要执行的命令所在的路径
     clear                       # 清空整个屏幕
@@ -376,7 +376,7 @@ shell实例手册
     vim /etc/sysconfig/i18n     # 修改编码  LANG="en_US.UTF-8"
     export LC_ALL=C             # 强制字符集
     vi /etc/hosts               # 查询静态主机名
-    alias                       # 别名
+    alias                       # 别名 ~/.bashrc增加alias la="ls -al --color=auto"
     watch uptime                # 监测命令动态刷新 监视
     ipcs -a                     # 查看Linux系统当前单个共享内存段的最大值
     ldconfig                    # 动态链接库管理命令
