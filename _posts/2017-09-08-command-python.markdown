@@ -58,13 +58,15 @@ python get-pip.py
 wget http://pypi.python.org/packages/source/s/setuptools/setuptools.tar.gz
 tar zxvf setuptools.tar.gz
 cd setuptools/
-python setu.py build
+python setup.py build
 python setup.py install
+
 # https://pypi.python.org/pypi/ez_setup
 tar zxvf ez_setup.tar.gz
 cd ez_setup/
 python setup.py build
 python setup.py install
+
 # https://pypi.python.org/pypi/pip
 tar zxvf pip.tar.gz
 cd pip/
