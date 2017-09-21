@@ -1073,3 +1073,10 @@ groups()                        # 返回一个包含全部匹配的子组的元�
 
 ## 2.5 `零宽断言`
 
+## 2.6 `mysql python`
+```
+下载 https://pypi.python.org/
+cd mysql-python
+python setup.py install
+```
+
