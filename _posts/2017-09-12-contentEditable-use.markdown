@@ -16,3 +16,6 @@ tags:
 ```
 <div contentEditable="true">
 ```
+```
+javascript:document.body.contentEditable=true;
+```
