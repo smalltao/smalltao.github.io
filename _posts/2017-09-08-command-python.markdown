@@ -1084,3 +1084,5 @@ cd mysql-python
 python setup.py install
 ```
 
+python 插件安装错误：加选项
+--trusted-host pypi.python.org

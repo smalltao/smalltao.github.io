@@ -30,7 +30,11 @@
     "boil": "git push boilerplate boilerplate:master",
     "push": "git push origin master --tag",
     "pyspider": "pyspider -c /search/odin/smalltao.github.io/shell/config.json ",
-    "cafe": "git co gitcafe-pages; git merge master; git push gitcafe gitcafe-pages:gitcafe-pages --tag; git co master;"
+    "cafe": "git co gitcafe-pages; git merge master; git push gitcafe gitcafe-pages:gitcafe-pages --tag; git co master;",
+    "svnup": "svn up --username litaoos2862 --password wangna0126! D:\\work\\svn\\branches\\2017\\November\\news_sub_link_add_img\\resin_news_add_link_img_20171114\\target",
+    "svnci": "svn ci D:\\work\\svn\\branches\\2017\\November\\news_sub_link_add_img\\resin_news_add_link_img_20171114\\target -m '无线新闻聚合'",
+    "svncibingresin": "svn ci D:\\work\\svn\\trunk\\datacenter\\reventondc_youdao -m '增加词典app文档'"
+
   },
   "description": "### 使用`jekyll server`",
   "main": "Gruntfile.js",
