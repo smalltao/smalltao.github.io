@@ -250,6 +250,16 @@ setfacl -R -m u:xuesong:rw- 1.test  # 对文件增加用户的读写权限 -R �
             git reset --hard origin/master
         }
 
+        git 异常处理
+        1、 git push 出现 403
+        $ git remote -v
+        # view existing remotes
+        origin	https://github.com/smalltao/smalltao.github.io.git (fetch)
+        origin	https://github.com/smalltao/smalltao.github.io.git (push)
+
+        # 改变 地址
+        $ git remote set-url origin git@github.com:smalltao/smalltao.github.io.git
+
 
 ### 1.8 恢复rm删除的文件
 
