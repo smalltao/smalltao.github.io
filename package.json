@@ -31,8 +31,7 @@
     "push": "git push origin master --tag",
     "pyspider": "pyspider -c /search/odin/smalltao.github.io/shell/config.json ",
     "cafe": "git co gitcafe-pages; git merge master; git push gitcafe gitcafe-pages:gitcafe-pages --tag; git co master;",
-    "gpe":"git pull;tar -cz shell/ | openssl enc -aes-256-cbc -out sh.tar.gz.dat ",
-    "gpush":"git add . && git commit -m \"persional note add\" && git push "
+    "gpush":"git pull && git add . && git commit -m \"persional note add\" && git push "
   },
   "description": "### 使用`jekyll server`",
   "main": "Gruntfile.js",
