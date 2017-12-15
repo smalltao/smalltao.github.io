@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "sql 优化"
+subtitle:   "sql 优化"
+author:     "LiTao"
+date:   2017-12-15 19:28:33 +0800
+categories: sql
+catalog:    true
+tags:
+    - sql
+---
+
+## sql 优化手法
+
+### 索引
+
+索引分两类：
+
+聚簇索引：数据表的物理顺序与索引顺序相同
+
+非聚簇索引：
+
