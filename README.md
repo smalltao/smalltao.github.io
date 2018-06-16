@@ -1,20 +1,34 @@
 # [LiTao Blog](http://smalltao.github.io)
 
-    ### 使用`jekyll server`
+### 使用 jekyll
 
-1. `gem update jekyll` # 更新jekyll
-2. `gem update github-pages` #更新依赖的包
+jekyll 需要 ruby 环境，所以需要先安装
 
-### 使用`bundle exec jekyll server`
+1. 安装 jekyll 环境：sudo gem install jekyll bundler
+2. 更新 jekyll： gem update jekyll
+3. 更新依赖的包：gem update github-pages
+
+### 使用 bundle 执行 `bundle exec jekyll server`
+
+如果 bundle 没有安装，使用 bundle install 安装
 
 1. `gem update jekyll` # 更新jekyll
 2. `gem update github-pages` #更新依赖的包
 3. `bundle update`
 
+使用 package.json 中定义的 scripts 脚本，使用方法
+
+```
+npm run xxxxx
+
+npm run watch 相当于 node grunt watch --verbose & npm run preview & bundle exec jekyll serve -w --host localhost 
+
+```
+
 参考文档：[using jekyll with pages](https://help.github.com/articles/using-jekyll-with-pages/) & [Upgrading from 2.x to 3.x](http://jekyllrb.com/docs/upgrading/2-to-3/) & [jekyll.com.cn](http://jekyll.com.cn/docs/frontmatter/)
 
 ## 说明文档
-                                                                                                    
+
 * 开始
 	* [环境要求](#environment)
 	* [开始](#get-started)
@@ -27,7 +41,7 @@
 	* [HTML5 演示文档布局](#keynote-layout)
 * 评论与 Google/Baidu Analytics
 	* [评论](#comment)
-	* [网站分析](#analytics) 
+	* [网站分析](#analytics)
 * 高级部分
 	* [自定义](#customization)
 	* [标题底图](#header-image)
@@ -41,8 +55,7 @@
 2. 输入 `jekyll serve` 预览
 3. 输入 `jekyll serve --watch` 边修改边自动运行修改后的文件
 
-使用[`bundler`](https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll)实时预览
-TODO
+使用[`bundler`](https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll) 实时预览
 
 #### Get Started
 
@@ -114,7 +127,7 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 ```
 
 注意：`featured-condition-size`: 如果一个标签的 SIZE，也就是使用该标签的文章数大于上面设定的条件值，这个标签就会在首页上被推荐。
- 
+
 内部有一个条件模板 `{% if tag[1].size > {{site.featured-condition-size}} %}` 是用来做筛选过滤的。
 
 
@@ -162,7 +175,7 @@ iframe在不同的设备中，将会自动的调整大小。保留内边距是�
 #### Comment
 
 评论系统
- 
+
 1. 多说[Duoshuo](http://duoshuo.com)评论系统  
 2. [Disqus](http://disqus.com)评论系统  
 
@@ -197,7 +210,7 @@ ga_domain: xxxxx			# 默认的是 auto, 这里我是自定义了的域名，你�
 #### Header Image
 
 标题底图
-  
+
 #### SEO Title
 
 ```html
@@ -208,6 +221,3 @@ ga_domain: xxxxx			# 默认的是 auto, 这里我是自定义了的域名，你�
 
 1. 这个模板是从 黄玄 [http://huangxuan.me/](https://github.com/Huxpro/huxpro.github.io)  fork 的， 感谢作者
 2. 感谢 Jekyll、Github Pages 和 Bootstrap!
-
-
-
