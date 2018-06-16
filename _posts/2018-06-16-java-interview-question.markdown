@@ -12,8 +12,7 @@ tags:
 
 ## hashcode相等的两个类一定相等吗? equals呢? 相反呢?
 
-hashcode相等的两个类不一定相等，hashcode值通过杂凑法得到，两个不同对类对象hashcode值也是可能相等的，
-== 比较的是对象的内存引用地址，equals默认比较的也是内存的引用地址，但是在Integer、String等类种对equals比较的是引用地址的值
+hashcode相等的两个类不一定相等，hashcode值通过杂凑法得到，两个不同对类对象hashcode值也是可能相等的，== 比较的是对象的内存引用地址，equals默认比较的也是内存的引用地址，但是在Integer、String等类种对equals比较的是引用地址的值
 
 ## 介绍一下集合框架?
 

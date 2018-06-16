@@ -45,7 +45,7 @@ apm config set strict-ssl false
 图片功能支持的好坏直接决定了我是否选择使用一个`Markdown`编辑器。也有不少编辑器和在线的图床绑定，但是这种方式受限于网络。虽然`Markdown`支持插入本地图片，
 但是每次插入新图片都是一堆重复操作：截图－命名－保存－插入。
 
-`markdown-image-paste`将这些操作一步完成：
+`markdown-image-paste` 将这些操作一步完成：
 
 ```
 1. 使用截图工具将图片复制到系统剪切板。
