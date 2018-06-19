@@ -16,10 +16,18 @@ tags:
 [解决办法](https://github.com/atom/apm#behind-a-firewall)：
 
 ```
+
 apm config set strict-ssl false
+
 ```
 
-## 2. 增强插件
+atom 启动时报：Cannot load the system dictionary for zh-CN. Checked the following paths for dictionary files
+
+原因：无法加载中文的拼写检查，关掉拼写检查即可> File > Settings > Package > 搜索Spell > 将Spell check 改为 disable > 重启
+
+## 2. 插件
+
+>> 使用 shift+commond+p 调出插件菜单 
 
 ### 2.1 增强预览(`markdown-preview-plus`)
 
@@ -75,3 +83,5 @@ apm config set strict-ssl false
 
 在使用 `Git` 进行合并和 `rebase` 的时候可以用 `alt-m d` 来激活这个插件，它会列出所有冲突的文件，将每一处冲突高亮，同时有按钮和快捷键供你快速选用某个版本，
 在你解决所有冲突后会提示你进行 `Commit`. 有了这个插件再也不同担心出冲突的时候看瞎眼了。
+
+### 3.0 [plateformio-ide-terminal]() 为 atom 增加命令行插件

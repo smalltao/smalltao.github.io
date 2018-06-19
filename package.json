@@ -19,10 +19,9 @@
     "grunt-contrib-watch": "~0.6.1"
   },
   "scripts": {
-    "preview": "cd _site; /usr/local/python27/bin/python -m SimpleHTTPServer 8020",
+    "preview": "cd _site; python -m SimpleHTTPServer 8020",
     "py3view": "cd _site; python3 -m http.server 8020",
-    "watch1": "grunt watch --verbose & npm run preview & bundle exec jekyll serve -w --host localhost ",
-    "watch": "grunt watch --verbose & bundle exec jekyll serve -w --host localhost ",
+    "watch": "grunt watch --verbose & npm run preview & bundle exec jekyll serve -w --host localhost ",
     "close": "ps -ef|grep SimpleHTTPServer|awk '{print $2}'|xargs kill -9",
     "enc": "tar -cz shell/ | openssl enc -aes-256-cbc -out sh.tar.gz.dat",
     "denc": "openssl enc -aes-256-cbc -d -in sh.tar.gz.dat | tar -xz -P shell/",
