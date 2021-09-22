@@ -70,12 +70,12 @@ ga_domain: smalltao.me
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "站点地图，<br>不知道填什么，一点不懂审美"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/img_long_panda.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # Featured Tags
-featured-tags: true                     # 是否启用功能标签
+featured-tags: true          sidebar-avatar           # 是否启用功能标签
 featured-condition-size: 1              # 如果标签的级别超过此条件值，将显示标签
 
 
