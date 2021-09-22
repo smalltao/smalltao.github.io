@@ -89,7 +89,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "黄玄",
+        title: "李涛",
         href: "https://huangxuan.me/"
     }
 ]
