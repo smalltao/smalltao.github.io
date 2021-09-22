@@ -86,10 +86,10 @@ service-worker: true
 
 
 
-# Friends
-friends: [
-    {
-        title: "李涛",
-        href: "https://huangxuan.me/"
-    }
-]
+## Friends
+#friends: [
+#    {
+#        title: "李涛",
+#        href: "https://huangxuan.me/"
+#    }
+#]
