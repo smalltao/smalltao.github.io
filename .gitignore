@@ -1,12 +1,23 @@
+# Jekyll
 _site
+.sass-cache
+
+# Node
 node_modules
 npm-debug.log
+
+# macOS
 .DS_Store
 */.DS_Store
 */*/.DS_Store
-*.sh
+
+# IDE
 .idea/
-.gitignore
-smalltao.github.io.iml
+*.iml
+
+# Shell scripts (optional)
+*.sh
 shell/*
+
+# Python
 *.py
