@@ -1,3 +1,8 @@
+/*!
+ * LiTao Blog v1.7.0 (http://smalltao.github.io/)
+ * Copyright 2026 LiT <731334268@gmail.com>
+ */
+
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
@@ -299,16 +304,70 @@ button.paper-button {
   margin: 16px;
   border-radius: 2px;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+body {
+  animation: fadeIn 0.6s ease-out;
+}
+.post-preview,
+.sidebar-container,
+.tag-cloud-item {
+  animation: slideInLeft 0.5s ease-out backwards;
+}
+.post-preview:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.post-preview:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.post-preview:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.post-preview:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.post-preview:nth-child(5) {
+  animation-delay: 0.25s;
+}
 body {
   /* Hux learn from
      *     TypeIsBeautiful,
      *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
      */
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
-  line-height: 1.7;
   font-size: 16px;
   color: #404040;
   overflow-x: hidden;
+  background: #f8f9fa;
+  line-height: 1.7;
 }
 p {
   margin: 30px 0;
@@ -333,10 +392,11 @@ h4 {
 }
 a {
   color: #404040;
+  transition: color 150ms ease-in-out;
 }
 a:hover,
 a:focus {
-  color: #0085a1;
+  color: #00a5c8;
 }
 a img:hover,
 a img:focus {
@@ -556,7 +616,9 @@ pre code {
   }
 }
 .navbar-custom {
-  background: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: none;
   position: absolute;
   top: 0;
@@ -569,22 +631,46 @@ pre code {
      */
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   line-height: 1.7;
+  transition: all 250ms ease-in-out;
 }
 .navbar-custom .navbar-brand {
-  font-weight: 800;
+  font-weight: 700;
   color: white;
   height: 56px;
   line-height: 25px;
+  transition: all 150ms ease-in-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .navbar-custom .navbar-brand:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.02);
 }
 .navbar-custom .nav li a {
   text-transform: uppercase;
   font-size: 12px;
   line-height: 20px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 1px;
+  border-radius: 9999px;
+  transition: all 150ms ease-in-out;
+  position: relative;
+}
+.navbar-custom .nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: all 250ms ease-in-out;
+  transform: translateX(-50%);
+}
+.navbar-custom .nav li a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.navbar-custom .nav li a:hover::after {
+  width: 30px;
 }
 .navbar-custom .nav li a:active {
   background: rgba(0, 0, 0, 0.12);
@@ -636,8 +722,11 @@ pre code {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
     top: -61px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid #f2f2f2;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid #e9ecef;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;
     transition: transform 0.3s;
@@ -655,6 +744,10 @@ pre code {
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
     color: #0085a1;
+    background: rgba(0, 133, 161, 0.1);
+  }
+  .navbar-custom.is-fixed .nav li a::after {
+    background: #0085a1;
   }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -774,55 +867,82 @@ pre code {
     font-size: 20px;
   }
 }
+.post-preview {
+  padding: 24px;
+  margin: 20px 0;
+  background: white;
+  border-radius: 12px;
+  transition: all 250ms ease-in-out;
+  animation: scaleIn 0.4s ease-out backwards;
+}
+.post-preview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
 .post-preview > a {
   color: #404040;
 }
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #0085a1;
+  color: #00a5c8;
 }
 .post-preview > a > .post-title {
-  font-size: 21px;
-  line-height: 1.3;
-  margin-top: 30px;
-  margin-bottom: 8px;
+  font-size: 22px;
+  line-height: 1.4;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0085a1 0%, #00a5c8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 150ms ease-in-out;
 }
 .post-preview > a > .post-subtitle {
-  font-size: 15px;
-  line-height: 1.3;
+  font-size: 16px;
+  line-height: 1.4;
   margin: 0;
-  font-weight: 300;
-  margin-bottom: 10px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: #cccccc;
 }
 .post-preview > .post-meta {
   font-family: 'Lora', 'Times New Roman', serif;
   color: #cccccc;
-  font-size: 16px;
+  font-size: 14px;
   font-style: italic;
-  margin-top: 0;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
 }
 .post-preview > .post-meta > a {
   text-decoration: none;
   color: #404040;
+  transition: color 150ms ease-in-out;
 }
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus {
   color: #0085a1;
-  text-decoration: underline;
 }
 @media only screen and (min-width: 768px) {
+  .post-preview {
+    padding: 30px;
+    margin: 25px 0;
+  }
   .post-preview > a > .post-title {
-    font-size: 26px;
-    line-height: 1.3;
-    margin-bottom: 10px;
+    font-size: 28px;
+    margin-bottom: 12px;
   }
   .post-preview > a > .post-subtitle {
-    font-size: 16px;
-  }
-  .post-preview .post-meta {
     font-size: 18px;
   }
+  .post-preview .post-meta {
+    font-size: 15px;
+  }
+}
+.post-preview + hr {
+  display: none;
 }
 .post-content-preview {
   font-size: 13px;
@@ -931,23 +1051,39 @@ form .row:first-child .floating-label-form-group {
   line-height: 1.7;
   text-transform: uppercase;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 1px;
-  border-radius: 0;
+  border-radius: 9999px;
   padding: 15px 25px;
+  transition: all 250ms ease-in-out;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.btn:active {
+  transform: translateY(0);
 }
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
 }
-.btn-default:hover,
-.btn-default:focus {
-  background-color: #0085a1;
-  border: 1px solid #0085a1;
+.btn-default {
+  background: linear-gradient(135deg, #0085a1 0%, #00a5c8 100%);
+  border: none;
   color: white;
 }
+.btn-default:hover,
+.btn-default:focus {
+  background: linear-gradient(135deg, #00a5c8 0%, #00c5e8 100%);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(0, 133, 161, 0.39);
+  transform: translateY(-2px);
+}
 .pager {
-  margin: 20px 0 0 !important;
+  margin: 40px 0 0 !important;
   padding: 0px !important;
 }
 .pager li > a,
@@ -960,27 +1096,32 @@ form .row:first-child .floating-label-form-group {
   line-height: 1.7;
   text-transform: uppercase;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 1px;
-  padding: 10px;
-  background-color: white;
-  border-radius: 0;
+  padding: 12px 24px;
+  background: white;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 250ms ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   .pager li > a,
   .pager li > span {
     font-size: 14px;
-    padding: 15px 25px;
+    padding: 15px 30px;
   }
 }
 .pager li > a {
   color: #404040;
+  border: 1px solid #e9ecef;
 }
 .pager li > a:hover,
 .pager li > a:focus {
   color: white;
-  background-color: #0085a1;
-  border: 1px solid #0085a1;
+  background: linear-gradient(135deg, #0085a1 0%, #00a5c8 100%);
+  border: none;
+  box-shadow: 0 4px 14px 0 rgba(0, 133, 161, 0.39);
+  transform: translateY(-2px);
 }
 .pager li > a:hover > span,
 .pager li > a:focus > span {
@@ -991,8 +1132,10 @@ form .row:first-child .floating-label-form-group {
 .pager .disabled > a:focus,
 .pager .disabled > span {
   color: #cccccc;
-  background-color: #404040;
+  background-color: #f8f9fa;
+  border-color: #e9ecef;
   cursor: not-allowed;
+  box-shadow: none;
 }
 ::-moz-selection {
   color: white;
@@ -1060,15 +1203,22 @@ img::-moz-selection {
   font-size: 14px;
   border: none;
   line-height: 28px;
-  margin: 0 2px;
+  margin: 0 4px;
   margin-bottom: 8px;
-  background: #D6D6D6;
+  background: #e9ecef;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  transition: all 250ms ease-in-out;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 #tag_cloud a:hover,
 #tag_cloud .tag:hover,
 #tag_cloud a:active,
 #tag_cloud .tag:active {
-  background-color: #0085a1 !important;
+  background: linear-gradient(135deg, #0085a1 0%, #00a5c8 100%) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px 0 rgba(0, 133, 161, 0.39);
 }
 @media only screen and (min-width: 768px) {
   #tag_cloud {
